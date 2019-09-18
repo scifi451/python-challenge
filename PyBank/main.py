@@ -4,6 +4,7 @@ import os
 import csv
 # set the path
 budget_data_csv = os.path.join("..","Resources" , "budget_data.csv")
+
 # initialize the variables
 total_profits = 0
 total_months = 0
@@ -13,6 +14,7 @@ g_increase_value = 0
 g_increase_month = ""
 g_decrease_value = 0
 g_decrease_month = ""
+
 # open the budget_data.csv
 with open(budget_data_csv, newline="") as csvfile:
    # read the rows
@@ -39,14 +41,14 @@ with open(budget_data_csv, newline="") as csvfile:
        total_monthly_changes = total_monthly_changes + monthly_change
 
        # if the g_increase_value is less than the current value set it to the current month value
-       if g_increase_value > g_increase_value:
-         g_increase_value = g_increase_value + int(row[1]) 
-         g_increase_month = g_increase_month + row[0]
+       if monthly_change  > g_increase_value:
+         g_increase_value = monthly_change 
+         g_increase_month =  row[0]
        print(f"Greatest Increase in Profits:{g_increase_month} (${g_increase_value})")  
       # if the g_decrease_value is greater than the current valuhe set it the current month value
-       if g_decrease_value > g_decrease_value:
-         g_decrease_value = g_decrease_value + int(row[1]) 
-         g_decrease_month = g_decrease_month + row[0]
+       if g_decrease_value > monthly_change:
+         g_decrease_value = monthly_change 
+         g_decrease_month =  row[0]
        print(f"Greatest Decrease in Profits:{g_decrease_month} (${g_decrease_value})")  
 
 average_monthly_changes = total_monthly_changes / (total_months - 1)
