@@ -51,14 +51,15 @@ with open(budget_data_csv, newline="") as csvfile:
 
 average_monthly_changes = total_monthly_changes / (total_months - 1)
 print(f"Average Monthly Changes: {average_monthly_changes}")         
+
 #print the finanacial analysis
-# print("Financial Analysis")
-# print("--------------------")
-# print(f"Total Months: {total_months} ")
-# print(f"Total: ${total_profits}")
-# print(f"Average change ${round(float(total_monthly_changes/(total_months-1)),2)}")
-# print(f"Greatest increase in profits: {g_increase_month} (${g_increase_value})")
-# print(f"Greatest decrease in profits: {g_decrease_month} (${g_decrease_value})")
+print("Financial Analysis")
+print("--------------------")
+print(f"Total Months: {total_months} ")
+print(f"Total: ${total_profits}")
+print(f"Average change ${round(float(total_monthly_changes/(total_months-1)),2)}")
+print(f"Greatest increase in profits: {g_increase_month} (${g_increase_value})")
+print(f"Greatest decrease in profits: {g_decrease_month} (${g_decrease_value})")
 #write it to a text file
 #output_path= os.path.join("..","PyBank_output.txt")
 # open the file
