@@ -35,7 +35,7 @@ with open(budget_data_csv, newline="") as csvfile:
        # else if total_months > 1 calcuate the change from last value, and set the last_value to the current month value
        elif total_months > 1:
          monthly_change = int(row[1]) - previous_row
-         #previous_row = int(row[1])
+         previous_row = int(row[1])
        #print("monthly change:" + str(monthly_change)) 
        # add to the total monthly changes
        total_monthly_changes = total_monthly_changes + monthly_change
@@ -62,7 +62,7 @@ print(f"Average change ${round(float(total_monthly_changes/(total_months-1)),2)}
 print(f"Greatest increase in profits: {g_increase_month} (${g_increase_value})")
 print(f"Greatest decrease in profits: {g_decrease_month} (${g_decrease_value})")
 #write it to a text file
-output_path= os.path.join("..","PyBank_output.txt")
+output_path= os.path.join("PyBank_output.txt")
 # open the file
 with open (output_path, 'w', newline='') as txtfile:
      # write rows

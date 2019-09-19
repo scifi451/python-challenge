@@ -62,12 +62,12 @@ print(f"Average change ${round(float(total_monthly_changes/(total_months-1)),2)}
 print(f"Greatest increase in profits: {g_increase_month} (${g_increase_value})")
 print(f"Greatest decrease in profits: {g_decrease_month} (${g_decrease_value})")
 #write it to a text file
-output_path= os.path.join("..","PyBank_output.txt")
+output_path= os.path.join("PyBank_output.txt")
 # open the file
 with open (output_path, 'w', newline='') as txtfile:
      # write rows
      txtwriter = txtfile.write("Financial Analysis\n")
-     txtwriter = txtfile.write("--------------------\n")
+     txtwriter = txtfile.write("-----------------------\n")
      txtwriter = txtfile.write(f"Total Months: {total_months}\n")
      txtwriter = txtfile.write(f"Total: ${total_profits}\n")
      txtwriter = txtfile.write(f"Average change ${round(float(average_monthly_changes/(total_months-1)),2)}\n")
