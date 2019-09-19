@@ -25,18 +25,18 @@ with open(budget_data_csv, newline="") as csvfile:
    for row in csvreader:
        # increment the total months
        total_months += 1
-       #print(f"total months: {total_months}")
+       print(f"total months: {total_months}")
        # add to the total_profits
        total_profits = int(row[1]) + total_profits 
-       #print("Total Profit: " + str (total_profits))
+       print("Total Profit: " + str (total_profits))
        # if the total_months == 1 save the profit to the last_value
        if total_months == 1:
           previous_row = int(row[1])
        # else if total_months > 1 calcuate the change from last value, and set the last_value to the current month value
        elif total_months > 1:
          monthly_change = int(row[1]) - previous_row
-         #previous_row = int(row[1])
-       #print("monthly change:" + str(monthly_change)) 
+         previous_row = int(row[1])
+       print("monthly change:" + str(monthly_change)) 
        # add to the total monthly changes
        total_monthly_changes = total_monthly_changes + monthly_change
 
@@ -44,32 +44,32 @@ with open(budget_data_csv, newline="") as csvfile:
        if monthly_change  > g_increase_value:
          g_increase_value = monthly_change 
          g_increase_month =  row[0]
-       #print(f"Greatest Increase in Profits:{g_increase_month} (${g_increase_value})")  
+       print(f"Greatest Increase in Profits:{g_increase_month} (${g_increase_value})")  
       # if the g_decrease_value is greater than the current valuhe set it the current month value
        if g_decrease_value > monthly_change:
          g_decrease_value = monthly_change 
          g_decrease_month =  row[0]
-       #print(f"Greatest Decrease in Profits:{g_decrease_month} (${g_decrease_value})")  
+       print(f"Greatest Decrease in Profits:{g_decrease_month} (${g_decrease_value})")  
 
 average_monthly_changes = total_monthly_changes / (total_months - 1)
 print(f"Average Monthly Changes: {average_monthly_changes}")         
 #print the finanacial analysis
-print("Financial Analysis")
-print("--------------------")
-print(f"Total Months: {total_months} ")
-print(f"Total: ${total_profits}")
-print(f"Average change ${round(float(total_monthly_changes/(total_months-1)),2)}")
-print(f"Greatest increase in profits: {g_increase_month} (${g_increase_value})")
-print(f"Greatest decrease in profits: {g_decrease_month} (${g_decrease_value})")
+# print("Financial Analysis")
+# print("--------------------")
+# print(f"Total Months: {total_months} ")
+# print(f"Total: ${total_profits}")
+# print(f"Average change ${round(float(total_monthly_changes/(total_months-1)),2)}")
+# print(f"Greatest increase in profits: {g_increase_month} (${g_increase_value})")
+# print(f"Greatest decrease in profits: {g_decrease_month} (${g_decrease_value})")
 #write it to a text file
-output_path= os.path.join("..","PyBank_output.txt")
+#output_path= os.path.join("..","PyBank_output.txt")
 # open the file
-with open (output_path, 'w', newline='') as txtfile:
-     # write rows
-     txtwriter = txtfile.write("Financial Analysis\n")
-     txtwriter = txtfile.write("-----------------------\n")
-     txtwriter = txtfile.write(f"Total Months: {total_months}\n")
-     txtwriter = txtfile.write(f"Total: ${total_profits}\n")
-     txtwriter = txtfile.write(f"Average change ${round(float(average_monthly_changes/(total_months-1)),2)}\n")
-     txtwriter = txtfile.write(f"Greatest increase in profits: {g_increase_month} (${g_increase_value})\n")
-     txtwriter = txtfile.write(f"Greatest decrease in profits: {g_decrease_month} (${g_decrease_value})\n")
+# with open (output_path, 'w', newline='') as txtfile:
+#     # write rows
+#     txtwriter = txtfile.write("Financial Analysis\n")
+#     txtwriter = txtfile.write("--------------------\n")
+#     txtwriter = txtfile.write(f"Total Months: {totalMonths}\n")
+#     txtwriter = txtfile.write(f"Total: ${totalProfits}\n")
+#     txtwriter = txtfile.write(f"Average change ${round(float(sum_of_changes/(totalMonths-1)),2)}\n")
+#     txtwriter = txtfile.write(f"Greatest increase in profits: {g_increase_month} (${g_increase_value})\n")
+#     txtwriter = txtfile.write(f"Greatest decrease in profits: {g_decrease_month} (${g_decrease_value})\n")
