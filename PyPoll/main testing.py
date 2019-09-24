@@ -36,14 +36,9 @@ with open(csvpath, newline="") as csvfile:
             winning_count = votes
             winning_candidate = candidate
 
-For 
+
 print(f"{candidate}: {vote_percentage:.3f}% ({votes})\n")
 print(f"{winning_candidate}")
-
-
-
-
-
 
 
 # Print the results and export the data to our text file
